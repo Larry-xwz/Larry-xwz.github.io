@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的获奖展示 | 个人网站</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        /* 页面背景和整体布局 */
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 导航栏样式 */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* 图片展示容器 */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* 图片卡片样式 */
+        .image-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* 保持图片比例，裁剪多余部分 */
+            cursor: pointer;
+        }
+
+        .image-card .desc {
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        /* 大图预览遮罩 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        /* 关闭按钮 */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        /* 响应式适配（手机端） */
+        @media (max-width: 768px) {
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <h1>我的工作荣誉展示</h1>
+        <p>记录每一份努力与收获</p>
+    </header>
+
+    <!-- 图片展示区 -->
+    <div class="gallery-container">
+        <!-- 示例图片3 -->
+        <div class="image-card">
+            <img src="National Manager推荐信.jfif" alt="获奖图片3" onclick="openModal(this.src)">
+            <div class="desc">National Manager 推荐信</div>
+        </div>
+        <!-- 示例图片1 - 你替换成自己的即可 -->
+        <div class="image-card">
+            <img src="Award1.png" alt="获奖图片1" onclick="openModal(this.src)">
+            <div class="desc">Award 1</div>
+        </div>
+
+        <!-- 示例图片2 -->
+        <div class="image-card">
+            <img src="Award2.png" alt="获奖图片2" onclick="openModal(this.src)">
+            <div class="desc">Award2</div>
+        </div>
+
+        <!-- 示例图片3 -->
+        <div class="image-card">
+            <img src="Award3.png" alt="获奖图片3" onclick="openModal(this.src)">
+            <div class="desc">Award3</div>
+        </div>
+
+        <!-- 示例图片3 -->
+        <div class="image-card">
+            <img src="award4.png" alt="获奖图片3" onclick="openModal(this.src)">
+            <div class="desc">Award4</div>
+        </div>
+
+        <!-- 示例图片3 -->
+        <div class="image-card">
+            <img src="Award5.png" alt="获奖图片3" onclick="openModal(this.src)">
+            <div class="desc">Award5</div>
+        </div>
+
+        <!-- 示例图片3 -->
+        <div class="image-card">
+            <img src="Award6.png" alt="获奖图片3" onclick="openModal(this.src)">
+            <div class="desc">Award6</div>
+        </div>
+
+        <!-- 示例图片3 -->
+        <div class="image-card">
+            <img src="Award7.png" alt="获奖图片3" onclick="openModal(this.src)">
+            <div class="desc">Award7</div>
+        </div>
+
+        <!-- 示例图片3 -->
+        <div class="image-card">
+            <img src="Award8.png" alt="获奖图片3" onclick="openModal(this.src)">
+            <div class="desc">Award8</div>
+        </div>
+
+        <!-- 示例图片3 -->
+        <div class="image-card">
+            <img src="Award9.png" alt="获奖图片3" onclick="openModal(this.src)">
+            <div class="desc">Award9</div>
+        </div>
+
+        <!-- 示例图片3 -->
+        <div class="image-card">
+            <img src="Award10.png" alt="获奖图片3" onclick="openModal(this.src)">
+            <div class="desc">Award10</div>
+        </div>
+
+        <!-- 示例图片3 -->
+        <div class="image-card">
+            <img src="Award11.png" alt="获奖图片3" onclick="openModal(this.src)">
+            <div class="desc">Award11</div>
+        </div>
+
+        <!-- 示例图片3 -->
+        <div class="image-card">
+            <img src="Award12.png" alt="获奖图片3" onclick="openModal(this.src)">
+            <div class="desc">Award12</div>
+        </div>
+
+        
+        <!-- 可以复制上面的卡片，添加更多图片 -->
+    </div>
+
+    <!-- 大图预览弹窗 -->
+    <div class="modal" id="imageModal" onclick="closeModal()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="大图预览">
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>我的个人荣誉展示站 © 2026</p>
+    </footer>
+
+    <script>
+        // 打开大图预览
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = "flex";
+            modalImg.src = imageSrc;
+        }
+
+        // 关闭大图预览
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = "none";
+        }
+
+        // 按ESC键也能关闭大图
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
